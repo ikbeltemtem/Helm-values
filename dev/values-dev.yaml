@@ -4,7 +4,7 @@ appName: myhelmapp1-dev
 microA:
   enabled: true
   namespace: dev
-  replicaCount: 1
+  replicaCount: 2
   image:
     name: devopsjourney1/mywebapp
     tag: latest
