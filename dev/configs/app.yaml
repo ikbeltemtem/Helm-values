@@ -1,0 +1,24 @@
+
+appConf:
+CUSTOM_HEADER: 'Customized with a configmap! MicroA !! updated !! adding secret !! test Docker Hub'
+
+server {
+      listen 80;
+      listen [::]:80;
+      
+      index index.php index.html;
+      error_log  /var/log/nginx/error.log;
+      access_log /var/log/nginx/access.log;
+   
+      root /var/www/public;
+      client_max_body_size 0;
+      proxy_connect_timeout 3600;
+      proxy_send_timeout 3600;
+      proxy_read_timeout 3600;
+      send_timeout 3600;
+      keepalive_timeout 3600;
+      
+      if ($http_user_agent ~* "Firefox") {
+          rewrite ^/.+/login /unsupported-browser.html;
+              #return 302 /unsupported-browser.html;
+      }
